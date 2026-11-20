@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      xml:lang="en"
+      i18n:domain="imio.omnia.ocr"
+>
+<body>
+
+<metal:title fill-slot="content-title">
+  <h1 tal:content="view/title">Text version of the document</h1>
+</metal:title>
+
+<metal:description fill-slot="content-description" />
+
+<metal:core fill-slot="content-core">
+  <p class="ocr-back">
+    <a href=""
+       tal:attributes="
+         href view/back_url;
+       "
+       i18n:translate=""
+    >Back to the document</a>
+  </p>
+  <div class="ocr-text"
+       tal:content="structure view/body"
+  >Text version</div>
+</metal:core>
+
+</body>
+</html>

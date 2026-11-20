@@ -1,0 +1,6 @@
+[report]
+include =
+    src/imio/omnia/ocr/*
+omit =
+    */test*
+    */upgrades/*

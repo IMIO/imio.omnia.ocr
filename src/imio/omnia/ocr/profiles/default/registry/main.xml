@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<registry
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="imio.omnia.ocr">
+
+  <records interface="imio.omnia.ocr.interfaces.IOmniaOcrSettings"/>
+
+  <!-- Script of the manage panel -->
+  <records prefix="plone.bundles/omnia-ocr"
+           interface="Products.CMFPlone.interfaces.IBundleRegistry">
+    <value key="jscompilation">++plone++imio.omnia.ocr/omnia-ocr.js</value>
+    <value key="enabled">True</value>
+    <value key="compile">False</value>
+    <value key="load_defer">True</value>
+    <value key="expression">python: member is not None</value>
+  </records>
+
+</registry>

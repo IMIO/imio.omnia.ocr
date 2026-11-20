@@ -1,0 +1,68 @@
+<div class="ocr-manage-panel alert alert-secondary"
+     data-ocr-panel=""
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     tal:define="
+       status view/status;
+       auto_start view/auto_start;
+     "
+     tal:attributes="
+       data-ocr-status python:status or 'none';
+       data-ocr-process-url python:view.process_url() if auto_start else None;
+       data-ocr-token python:view.token() if auto_start else None;
+       data-ocr-working-label python:view.working_label() if auto_start else None;
+     "
+     i18n:domain="imio.omnia.ocr"
+>
+  <p class="ocr-status mb-2"
+     aria-live="polite"
+  >
+    <span data-ocr-status-label=""
+          tal:content="view/status_label"
+    >Status of the text version</span>
+    <span class="badge bg-warning text-dark"
+          tal:condition="python:view.is_done() and view.low_confidence()"
+          i18n:translate=""
+    >Low confidence</span>
+    <span class="badge bg-secondary"
+          tal:condition="view/hidden"
+          i18n:translate=""
+    >Hidden</span>
+  </p>
+  <form class="ocr-actions mb-0"
+        action=""
+        method="post"
+        tal:attributes="
+          action view/manage_url;
+        "
+  >
+    <input name="_authenticator"
+           type="hidden"
+           value=""
+           tal:attributes="
+             value view/token;
+           "
+    />
+    <button class="btn btn-sm btn-outline-secondary"
+            name="action"
+            type="submit"
+            value="regenerate"
+            tal:condition="view/can_generate"
+            tal:content="view/generate_label"
+    >Generate the text version</button>
+    <button class="btn btn-sm btn-outline-secondary"
+            name="action"
+            type="submit"
+            value="hide"
+            tal:condition="python:view.is_done() and not view.hidden()"
+            i18n:translate=""
+    >Hide the text version</button>
+    <button class="btn btn-sm btn-outline-secondary"
+            name="action"
+            type="submit"
+            value="show"
+            tal:condition="python:view.is_done() and view.hidden()"
+            i18n:translate=""
+    >Show the text version</button>
+  </form>
+</div>
