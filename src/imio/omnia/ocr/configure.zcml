@@ -1,0 +1,88 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns:i18n="http://namespaces.zope.org/i18n"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  i18n_domain="imio.omnia.ocr">
+
+  <i18n:registerTranslations directory="locales"/>
+
+  <include package="imio.omnia.core"/>
+  <include package="plone.behavior" file="meta.zcml"/>
+  <include package="plone.restapi" file="meta.zcml"/>
+
+  <!-- has to be loaded before permissions are used, so keep above views aso. -->
+  <include file="permissions.zcml"/>
+  <include package=".browser"/>
+
+  <genericsetup:registerProfile
+    name="default"
+    title="Omnia OCR"
+    directory="profiles/default"
+    description="Installs the imio.omnia.ocr add-on. Provides a machine-generated text version of PDF files."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    post_handler=".setuphandlers.post_install"
+  />
+
+  <genericsetup:registerProfile
+    name="uninstall"
+    title="Omnia OCR (uninstall)"
+    directory="profiles/uninstall"
+    description="Uninstalls the imio.omnia.ocr add-on."
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    post_handler=".setuphandlers.uninstall"
+  />
+
+  <utility
+    factory=".setuphandlers.HiddenProfiles"
+    name="imio.omnia.ocr-hiddenprofiles"
+  />
+
+  <!-- Marker behavior: a host package enables it on a content type -->
+  <plone:behavior
+    name="imio.omnia.ocr"
+    title="Omnia OCR text version"
+    description="Gives the content a machine-generated text version of its PDF file."
+    provides=".interfaces.IOcrEnabled"
+  />
+
+  <adapter factory=".adapters.OcrText"/>
+
+  <utility
+    factory=".runners.SyncRunner"
+    provides=".interfaces.IOcrRunner"
+    name="sync"
+  />
+
+  <utility
+    component=".runners.runners_vocabulary"
+    name="imio.omnia.ocr.runners"
+  />
+
+  <adapter
+    factory=".indexers.ocr_status"
+    name="ocr_status"
+  />
+
+  <subscriber
+    for=".interfaces.IOcrEnabled
+         zope.lifecycleevent.interfaces.IObjectAddedEvent"
+    handler=".subscribers.refresh_text"
+  />
+
+  <subscriber
+    for=".interfaces.IOcrEnabled
+         zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+    handler=".subscribers.refresh_text"
+  />
+
+  <plone:service
+    method="GET"
+    name="@ocr-text"
+    for=".interfaces.IOcrEnabled"
+    factory=".restapi.OcrTextGet"
+    permission="zope2.View"
+    layer=".interfaces.IImioOmniaOcrLayer"
+  />
+
+</configure>

@@ -1,0 +1,251 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: imio.omnia.ocr\n"
+"POT-Creation-Date: 2026-11-20 00:00+0000\n"
+"PO-Revision-Date: 2026-11-20 00:00+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: French <fr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language-Code: fr\n"
+"Language-Name: French\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: imio.omnia.ocr\n"
+
+#: ../interfaces.py
+msgid "A text version with a confidence score below this value has a low confidence. From 0 to 1."
+msgstr "Une version texte dont le score de confiance est inférieur à cette valeur est de faible confiance. De 0 à 1."
+
+#: ../interfaces.py
+msgid "After a change of this setting, reindex the content to update the search."
+msgstr "Après une modification de ce paramètre, réindexez les contenus pour mettre la recherche à jour."
+
+#: ../interfaces.py
+msgid "Ask for a confidence score for each page."
+msgstr "Demander un score de confiance pour chaque page."
+
+#: ../interfaces.py
+msgid "Ask for a short description of each image of the document."
+msgstr "Demander une courte description de chaque image du document."
+
+#: ../interfaces.py
+msgid "Ask for HTML tables. They keep the merged cells. When this is off, tables are in Markdown."
+msgstr "Demander des tableaux HTML. Ils conservent les cellules fusionnées. Si cette option est désactivée, les tableaux sont en Markdown."
+
+#: ../browser/templates/ocr_text.pt
+msgid "Back to the document"
+msgstr "Retour au document"
+
+#: ../interfaces.py
+msgid "Confidence scores"
+msgstr "Scores de confiance"
+
+#: ../interfaces.py
+msgid "Describe the images"
+msgstr "Décrire les images"
+
+#: ../interfaces.py
+msgid "Do not show the text and keep it out of the search"
+msgstr "Ne pas afficher le texte et l’exclure de la recherche"
+
+#: ../interfaces.py
+msgid "Enabled"
+msgstr "Activé"
+
+#: ../browser/views.py
+msgid "Generate again"
+msgstr "Générer à nouveau"
+
+#: ../browser/views.py
+msgid "Generate the text version"
+msgstr "Générer la version texte"
+
+#: ../interfaces.py
+msgid "Generate the text version of PDF files with optical character recognition (OCR). When this is off, no file is sent to the OCR. The existing text versions stay visible."
+msgstr "Générer la version texte des fichiers PDF par reconnaissance optique de caractères (OCR). Si cette option est désactivée, aucun fichier n’est envoyé à l’OCR. Les versions texte existantes restent visibles."
+
+#: ../browser/views.py
+msgid "Generation is disabled."
+msgstr "La génération est désactivée."
+
+#: ../configure.zcml
+msgid "Gives the content a machine-generated text version of its PDF file."
+msgstr "Donne au contenu une version texte de son fichier PDF, générée automatiquement."
+
+#: ../browser/templates/ocr_manage_panel.pt
+msgid "Hidden"
+msgstr "Masquée"
+
+#: ../browser/templates/ocr_manage_panel.pt
+msgid "Hide the text version"
+msgstr "Masquer la version texte"
+
+#: ../interfaces.py
+msgid "How the generation runs."
+msgstr "Manière dont la génération est exécutée."
+
+#: ../api.py
+msgid "Image: ${description}"
+msgstr "Image : ${description}"
+
+#: ../runners.py
+msgid "In the request (synchronous)"
+msgstr "Dans la requête (synchrone)"
+
+#: ../configure.zcml
+msgid "Installs the imio.omnia.ocr add-on. Provides a machine-generated text version of PDF files."
+msgstr "Installe le module imio.omnia.ocr. Fournit une version texte des fichiers PDF, générée automatiquement."
+
+#: ../browser/templates/ocr_manage_panel.pt
+msgid "Low confidence"
+msgstr "Faible confiance"
+
+#: ../interfaces.py
+msgid "Low confidence threshold"
+msgstr "Seuil de faible confiance"
+
+#: ../interfaces.py
+msgid "Maximum number of pages of the text version shown on the page of the content."
+msgstr "Nombre maximal de pages de la version texte affichées dans la page du contenu."
+
+#: ../interfaces.py
+msgid "Maximum time to wait for the answer of the Omnia API."
+msgstr "Durée maximale d’attente de la réponse de l’API Omnia."
+
+#: ../profiles/default/actions.xml
+msgid "OCR"
+msgstr "OCR"
+
+#: ../browser/controlpanel.py
+msgid "OCR settings"
+msgstr "Paramètres de l’OCR"
+
+#: ../interfaces.py
+msgid "OCR timeout (seconds)"
+msgstr "Délai d’attente de l’OCR (secondes)"
+
+#: ../configure.zcml
+msgid "Omnia OCR"
+msgstr "Omnia OCR"
+
+#: ../configure.zcml
+msgid "Omnia OCR (uninstall)"
+msgstr "Omnia OCR (désinstallation)"
+
+#: ../configure.zcml
+msgid "Omnia OCR text version"
+msgstr "Version texte par l’OCR d’Omnia"
+
+#: ../api.py
+msgid "Page ${number}"
+msgstr "Page ${number}"
+
+#: ../interfaces.py
+msgid "Pages shown on the content page"
+msgstr "Pages affichées dans la page du contenu"
+
+#: ../interfaces.py
+msgid "Runner"
+msgstr "Mode d’exécution"
+
+#: ../interfaces.py
+msgid "Separate the page headers and footers"
+msgstr "Séparer les en-têtes et les pieds de page"
+
+#: ../browser/templates/ocr_manage_panel.pt
+msgid "Show the text version"
+msgstr "Afficher la version texte"
+
+#: ../interfaces.py
+msgid "Show the text with a stronger warning"
+msgstr "Afficher le texte avec un avertissement renforcé"
+
+#: ../interfaces.py
+msgid "Show the text with a stronger warning and keep it out of the search"
+msgstr "Afficher le texte avec un avertissement renforcé et l’exclure de la recherche"
+
+#: ../interfaces.py
+msgid "Tables in HTML"
+msgstr "Tableaux en HTML"
+
+#: ../browser/views.py
+msgid "Text version generated on ${date}. Pages: ${pages}."
+msgstr "Version texte générée le ${date}. Pages : ${pages}."
+
+#: ../browser/views.py
+msgid "Text version of \"${title}\""
+msgstr "Version texte de « ${title} »"
+
+#: ../browser/controlpanel.py
+msgid "Text version of PDF files, generated by the Omnia OCR."
+msgstr "Version texte des fichiers PDF, générée par l’OCR d’Omnia."
+
+#: ../interfaces.py
+msgid "Text versions with a low confidence"
+msgstr "Versions texte de faible confiance"
+
+#: ../browser/views.py
+msgid "The generation of the text version failed: ${error}"
+msgstr "La génération de la version texte a échoué : ${error}"
+
+#: ../api.py
+msgid "The generation stopped on an error (${error})."
+msgstr "La génération s’est arrêtée sur une erreur (${error})."
+
+#: ../api.py
+msgid "The OCR found no text in the document."
+msgstr "L’OCR n’a trouvé aucun texte dans le document."
+
+#: ../api.py
+msgid "The Omnia API answered with HTTP status ${status}."
+msgstr "L’API Omnia a répondu avec le statut HTTP ${status}."
+
+#: ../api.py
+msgid "The Omnia API did not answer in time."
+msgstr "L’API Omnia n’a pas répondu dans le délai prévu."
+
+#: ../interfaces.py
+msgid "The page headers and footers are stored but they are not part of the text version."
+msgstr "Les en-têtes et les pieds de page sont conservés, mais ils ne font pas partie de la version texte."
+
+#: ../browser/views.py
+msgid "The text version is being generated. This can take several minutes."
+msgstr "La version texte est en cours de génération. Cela peut prendre plusieurs minutes."
+
+#: ../browser/views.py
+msgid "The text version is hidden."
+msgstr "La version texte est masquée."
+
+#: ../browser/views.py
+msgid "The text version is not generated. Generation is disabled."
+msgstr "La version texte n’est pas générée. La génération est désactivée."
+
+#: ../browser/views.py
+msgid "The text version is visible."
+msgstr "La version texte est visible."
+
+#: ../browser/views.py
+msgid "The text version is waiting to be generated."
+msgstr "La version texte est en attente de génération."
+
+#: ../browser/views.py
+msgid "This document has no text version."
+msgstr "Ce document n’a pas de version texte."
+
+#: ../browser/views.py
+msgid "This text version was generated automatically from the PDF file. It can contain errors. Only the PDF file is authoritative."
+msgstr "Cette version texte a été générée automatiquement à partir du fichier PDF. Elle peut contenir des erreurs. Seul le fichier PDF fait foi."
+
+#: ../browser/views.py
+msgid "Try again"
+msgstr "Réessayer"
+
+#: ../configure.zcml
+msgid "Uninstalls the imio.omnia.ocr add-on."
+msgstr "Désinstalle le module imio.omnia.ocr."
+
+#: ../browser/views.py
+msgid "Warning: the automatic recognition of this document is of low quality. This text version probably contains errors. Only the PDF file is authoritative."
+msgstr "Attention : la reconnaissance automatique de ce document est de faible qualité. Cette version texte contient probablement des erreurs. Seul le fichier PDF fait foi."

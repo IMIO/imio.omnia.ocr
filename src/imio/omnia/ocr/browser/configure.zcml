@@ -1,0 +1,74 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  i18n_domain="imio.omnia.ocr">
+
+  <!-- Publish static files -->
+  <plone:static
+    name="imio.omnia.ocr"
+    type="plone"
+    directory="static"
+  />
+
+  <browser:page
+    name="omnia-ocr-settings"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".controlpanel.OmniaOcrControlPanelView"
+    permission="cmf.ManagePortal"
+    layer="imio.omnia.ocr.interfaces.IImioOmniaOcrLayer"
+  />
+
+  <!-- Helper view for the templates of a host package -->
+  <browser:page
+    name="ocr-info"
+    for="imio.omnia.ocr.interfaces.IOcrEnabled"
+    class=".views.OcrInfoView"
+    allowed_interface="imio.omnia.ocr.interfaces.IOcrInfoView"
+    permission="zope2.View"
+    layer="imio.omnia.ocr.interfaces.IImioOmniaOcrLayer"
+  />
+
+  <!-- Full text version: a page and a bare fragment -->
+  <browser:page
+    name="ocr-text"
+    for="imio.omnia.ocr.interfaces.IOcrEnabled"
+    class=".views.OcrTextView"
+    permission="zope2.View"
+    layer="imio.omnia.ocr.interfaces.IImioOmniaOcrLayer"
+  />
+
+  <browser:page
+    name="ocr-text-fragment"
+    for="imio.omnia.ocr.interfaces.IOcrEnabled"
+    class=".views.OcrTextFragmentView"
+    permission="zope2.View"
+    layer="imio.omnia.ocr.interfaces.IImioOmniaOcrLayer"
+  />
+
+  <!-- The panel is empty for a user who cannot manage the text version -->
+  <browser:page
+    name="ocr-manage-panel"
+    for="imio.omnia.ocr.interfaces.IOcrEnabled"
+    class=".views.OcrManagePanelView"
+    permission="zope2.View"
+    layer="imio.omnia.ocr.interfaces.IImioOmniaOcrLayer"
+  />
+
+  <browser:page
+    name="ocr-process"
+    for="imio.omnia.ocr.interfaces.IOcrEnabled"
+    class=".views.OcrProcessView"
+    permission="imio.omnia.ocr.ManageTextVersion"
+    layer="imio.omnia.ocr.interfaces.IImioOmniaOcrLayer"
+  />
+
+  <browser:page
+    name="ocr-manage"
+    for="imio.omnia.ocr.interfaces.IOcrEnabled"
+    class=".views.OcrManageView"
+    permission="imio.omnia.ocr.ManageTextVersion"
+    layer="imio.omnia.ocr.interfaces.IImioOmniaOcrLayer"
+  />
+
+</configure>
